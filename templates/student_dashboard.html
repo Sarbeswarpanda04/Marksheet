@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #007BFF;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .download-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student Dashboard</h2>
+        
+        <h3>Welcome, {{ student.name }}</h3>
+        <p><strong>Roll No:</strong> {{ student.roll_no }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+
+        <h3>Marks Details</h3>
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+            </tr>
+            {% for subject in student.marks %}
+            <tr>
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.marks }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="{{ url_for('generate_marksheet', student_id=student.id) }}" class="download-btn">Download Marksheet (PDF)</a>
+
+    </div>
+
+</body>
+</html>
+<!-- <!-- End Path: templates/student_dashboard.html --> -->

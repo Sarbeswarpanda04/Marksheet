@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Login</title>
+</head>
+<body>
+    <h2>Admin Login</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.username.label }} {{ form.username() }}
+        {{ form.password.label }} {{ form.password() }}
+        {{ form.submit() }}
+    </form>
+</body>
+</html>
+<!-- End Path: templates/admin_login.html -->

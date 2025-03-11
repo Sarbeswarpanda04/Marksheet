@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <a href="{{ url_for('add_student') }}">Add New Student</a>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.roll_no }}</td>
+            <td>{{ student.email }}</td>
+            <td>
+                <a href="{{ url_for('update_student', id=student.id) }}">Edit</a>
+                <form method="POST" action="{{ url_for('delete_student', id=student.id) }}" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+<!-- End Path: templates/admin_dashboard.html -->

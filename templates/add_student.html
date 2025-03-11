@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Student</title>
+</head>
+<body>
+    <h2>Add New Student</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.name.label }} {{ form.name() }}
+        {{ form.roll_no.label }} {{ form.roll_no() }}
+        {{ form.email.label }} {{ form.email() }}
+        {{ form.password.label }} {{ form.password() }}
+        {{ form.confirm_password.label }} {{ form.confirm_password() }}
+        {{ form.submit() }}
+    </form>
+</body>
+</html>
+<!-- End Path: templates/add_student.html -->

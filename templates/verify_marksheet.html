@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet Verification</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        .container { background: white; padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: green; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Marksheet Verified ✅</h2>
+        <p><strong>Name:</strong> {{ student.name }}</p>
+        <p><strong>Roll No:</strong> {{ student.roll_no }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+
+        <h3>Marks:</h3>
+        <ul>
+            {% for subject in student.marks %}
+                <li>{{ subject.name }}: {{ subject.marks }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
+<!-- <!-- End Path: templates/verify_marksheet.html --> -->
